@@ -1,37 +1,19 @@
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family:  FiraSans, SpaceMono Nerd Font , FontAwesome, JetbrainsMono NerdFont, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
+    font-weight: 500;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
+    background-color: rgba(17, 17, 27, 0.8);
+    border-bottom: 1px solid rgba(100, 114, 125, 0.1);
+    color: #cdd6f4;
     transition-property: background-color;
     transition-duration: .5s;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
-}
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
 }
 
 button {
@@ -45,92 +27,81 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px #ABB2BF;
 }
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: #bac2de;
 }
 
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 
+#workspaces button.active {
+    color: #94e2d5;
+    background-color: transparent;
+    box-shadow: inset 0 -3px #94e2d5;
+}
+
+#workspaces button.persistent{
+    background-color: transparent;
+    color: #45475a;
+}
+
 #workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    color: #94e2d5;
+    background-color: #1e1e2e;
+    box-shadow: inset 0 -3px #bac2de;
 }
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
 }
 
-#mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
-}
-
 #clock,
 #battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
 #backlight,
 #network,
 #pulseaudio,
-#wireplumber,
 #custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#mpd {
+#tray{
     padding: 0 10px;
-    color: #ffffff;
+    /* color: #cdd6f4; */
 }
 
-#window,
 #workspaces {
     margin: 0 4px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
-}
-
 #clock {
-    background-color: #64727D;
+    box-shadow: inset 0 -3px #f5e0dc;
+}
+
+#clock.date{
+    box-shadow: inset 0 -3px #f2cdcd; 
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    box-shadow: inset 0 -3px #a6e3a1;
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    box-shadow: inset 0 -3px #a6e3a1;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: #cdd6f4;
+        color: #11111b;
     }
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: #f38ba8;
+    color: #cdd6f4;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -139,77 +110,53 @@ button:hover {
 }
 
 label:focus {
-    background-color: #000000;
-}
-
-#cpu {
-    background-color: #2ecc71;
-    color: #000000;
-}
-
-#memory {
-    background-color: #9b59b6;
-}
-
-#disk {
-    background-color: #964B00;
+    background-color: #11111b;
 }
 
 #backlight {
-    background-color: #90b1b1;
+    /* background-color: #eba0ac; */
+    box-shadow: inset 0 -3px #eba0ac;
 }
 
 #network {
-    background-color: #2980b9;
-}
-
-#network.disconnected {
-    background-color: #f53c3c;
+    /* background-color: #89b4fa; */
+    box-shadow: inset 0 -3px #89b4fa;
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    /* background-color: #fab387; */
+    box-shadow: inset 0 -3px #fab387;
 }
 
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
-
-#wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
-}
-
-#wireplumber.muted {
-    background-color: #f53c3c;
+#network.disconnected,
+#pulseaudio.muted,
+#pulseaudio.microphone.source-muted {
+    color: #f38ba8;
+    box-shadow: inset 0 -3px #f38ba8;
 }
 
 #custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
+    /* background-color: #66cc99; */
+    box-shadow: inset 0 -3px #66cc99;
     min-width: 100px;
 }
 
 #custom-media.custom-spotify {
-    background-color: #66cc99;
+    /* background-color: #66cc99; */
+    box-shadow: inset 0 -3px #66cc99;
+}
+
+#custom-spotify{
+    box-shadow: inset 0 -3px #66cc99;
 }
 
 #custom-media.custom-vlc {
     background-color: #ffa000;
 }
 
-#temperature {
-    background-color: #f0932b;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
-}
-
 #tray {
-    background-color: #2980b9;
+    /* background-color: #b4befe; */
+    box-shadow: inset 0 -3px #b4befe;
 }
 
 #tray > .passive {
@@ -218,16 +165,7 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
-}
-
-#idle_inhibitor {
-    background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
+    background-color: #f38ba8;
 }
 
 #mpd {
@@ -245,36 +183,4 @@ label:focus {
 
 #mpd.paused {
     background-color: #51a37a;
-}
-
-#language {
-    background: #00b093;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: #97e1ad;
-    color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad.empty {
-	background-color: transparent;
 }
